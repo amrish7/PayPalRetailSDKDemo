@@ -8,11 +8,11 @@ namespace Net4WPFDemo
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TakePayment : Window
     {
         private TransactionContext _context;
 
-        public MainWindow()
+        public TakePayment()
         {
             InitializeComponent();
             RetailSDK.Initialize();
