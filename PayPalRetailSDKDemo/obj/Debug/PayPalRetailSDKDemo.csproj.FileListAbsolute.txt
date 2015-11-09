@@ -1,0 +1,2 @@
+C:\Users\aravidas\Documents\GitHub\PayPalRetailSDKDemo\PayPalRetailSDKDemo\bin\Debug\PayPalRetailSDKDemo.exe.config
+C:\Users\aravidas\Documents\GitHub\PayPalRetailSDKDemo\PayPalRetailSDKDemo\bin\Debug\Net4Demo.exe.config

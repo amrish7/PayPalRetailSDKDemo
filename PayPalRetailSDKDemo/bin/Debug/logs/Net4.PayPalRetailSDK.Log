@@ -1,0 +1,350 @@
+2015-11-09 14:20:23.2692|DEBUG(9)|serverBackedFile|GET File FeatureMapStoreKey
+Request: {"url":"https://www.paypalobjects.com/webstatic/mobile/retail-sdk/feature-map.json","format":"json","headers":{}}
+2015-11-09 14:20:24.0914|DEBUG(9)|root|Beginning SDK initialization.
+2015-11-09 14:20:24.1226|DEBUG(9)|root|SDK initialization complete.
+2015-11-09 14:20:27.0453|WARN(9)|merchant|Using debug-only SDK token with embedded app secret. DO NOT USE IN LIVE APPS.
+2015-11-09 14:20:27.0612|DEBUG(9)|merchant|Loading merchant user info...
+2015-11-09 14:20:27.1181|DEBUG(9)|merchant|Loading merchant status...
+2015-11-09 14:20:27.2275|DEBUG(9)|serverBackedFile|Using server version of FeatureMapStoreKey
+2015-11-09 14:20:27.2275|INFO(9)|features|Version of local feature map: 1.0 remote/cached: 1.1
+2015-11-09 14:20:27.2275|DEBUG(9)|features|Replacing local feature map with remote
+2015-11-09 14:20:27.2431|DEBUG(9)|features|SDK will use feature map : {
+  "VERSION": "1.1",
+  "GLOBAL": {
+        "sig": false,
+        "apic": true,
+        "nslall": false,
+        "fhlem": [],
+        "fhlbid": [],
+        "SWU_CHECK_PERIOD": 300,
+        "READER_SLEEP_DELAY": 60
+  },
+  "ANDROID": {
+    "minSDKVersion": "1.0"
+  },
+  "IOS": {
+    "minSDKVersion": "1.0"
+  },
+  "US": {
+    "MCC_CODES": {
+      "4121": "*",
+      "5812": "*",
+      "5813": "*",
+      "5814": "*",
+      "7230": "*",
+      "7298": "*",
+      "4411": "*",
+      "7519": "*",
+      "7011": "*",
+      "7512": "*"
+    },
+    "CONTACTLESS_LIMIT": "10000"
+  },
+  "GB": {
+    "CONTACTLESS_LIMIT": "30"
+  },
+  "AU": {
+    "CONTACTLESS_LIMIT": "*"
+  }
+}
+2015-11-09 14:20:27.3951|DEBUG(9)|paypalrest|GET https://www.stage2d0044.stage.paypal.com/webapps/auth/protocol/openidconnect/v1/userinfo?schema=openid (260ms): 401
+2015-11-09 14:20:27.3971|DEBUG(9)|paypalrest|Attempting a direct token refresh
+2015-11-09 14:20:28.6550|DEBUG(9)|paypalrest|GET https://www.stage2d0044.stage.paypal.com/webapps/hereapi/merchant/v1/status (1521ms): 403
+2015-11-09 14:20:28.6550|DEBUG(9)|paypalrest|Successfully refreshed token.
+2015-11-09 14:20:29.0465|DEBUG(9)|paypalrest|GET https://www.stage2d0044.stage.paypal.com/webapps/hereapi/merchant/v1/status (391ms): 200
+2015-11-09 14:20:29.0621|DEBUG(9)|merchant|Successfully loaded merchant status {
+    "status": "ready",
+    "paymentTypes": [
+        "tab",
+        "key",
+        "card"
+    ],
+    "cardSettings": {
+        "minimum": "1",
+        "maximum": "10000",
+        "signatureRequiredAbove": "50",
+        "unsupportedCardTypes": [
+            "discover_contactless",
+            "amex_contactless"
+        ]
+    },
+    "currencyCode": "USD",
+    "categoryCode": "5932",
+    "businessCategoryExists": true
+}
+2015-11-09 14:20:29.1560|DEBUG(9)|paypalrest|GET https://www.stage2d0044.stage.paypal.com/webapps/auth/protocol/openidconnect/v1/userinfo?schema=openid (501ms): 200
+2015-11-09 14:20:29.1560|INFO(9)|merchant|Successfully loaded merchant user info!
+2015-11-09 14:20:29.2653|DEBUG(9)|merchant|Merchant Info: 
+{
+    "family_name": "Deboe",
+    "verified": "true",
+    "name": "Ryan Deboe",
+    "businessName": "Joe's Generic Business",
+    "given_name": "Ryan",
+    "user_id": "https://www.paypal.com/webapps/auth/identity/user/RCXbN78sf0K0l4xk4RLyZfb8DieaDYtTpvKn9V3bJJM",
+    "address": {
+        "postal_code": "78701",
+        "locality": "Austin",
+        "region": "TX",
+        "country": "US",
+        "street_address": "87538 Park Road, 7114 3rd Street"
+    },
+    "language": "en_US",
+    "zoneinfo": "America/Los_Angeles",
+    "locale": "en_US",
+    "phone_number": "8605347671",
+    "email": "sp-us-b10@paypal.com",
+    "businessSubCategory": "General",
+    "businessCategory": "Antiques"
+}
+2015-11-09 14:20:53.0352|DEBUG(9)|tx|Starting new transaction flow for 1 and 0 connected devices
+2015-11-09 14:20:57.0130|DEBUG(9)|paymentDevice|Bluetooth|Found device PayPal 133 will try initializing it.
+2015-11-09 14:20:57.0130|DEBUG(9)|miura|Starting Miura device.
+2015-11-09 14:20:57.0286|DEBUG(9)|paymentDevice|Device scan completed in 32.89s
+2015-11-09 14:20:57.0443|DEBUG(9)|miura|Connecting to Miura device PayPal 133
+2015-11-09 14:20:58.7105|DEBUG(9)|miura|Connected to Miura device PayPal 133
+2015-11-09 14:20:58.7105|DEBUG(9)|flow|Flow advancing to _performSoftReset
+2015-11-09 14:20:58.7260|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd0, instruction 0x0, P1 0x0, P2 0x0
+
+2015-11-09 14:20:59.2066|DEBUG(9)|miura.parser|Miura response template: e6 SW1: 90 SW2: 0 Raw: 01401ae616c30101c41144657669636520706f7765726564206f6e90006a
+2015-11-09 14:20:59.2066|DEBUG(9)|miura.parser|Emitting unsolicited terminal message
+2015-11-09 14:20:59.2223|DEBUG(9)|miura.terminal|Unsolicited message: <----
+Miura Response: Template: 0xe6
+Data (22 bytes): 0xc30101c41144657669636520706f7765726564206f6e
+TLV:
+  Tag 0xc3 MiuraStateChangeReason: 0x01
+  Tag 0xc4 MiuraStateChangeText: Device powered on
+SW1: 0x90 SW2: 0x0
+---->
+Change Type: PoweringOn (Device powered on)
+2015-11-09 14:20:59.2691|DEBUG(9)|miura.parser|Miura response template: e1 SW1: 90 SW2: 0 Raw: 01003ae1369f1e083130303334313333ef13df0d084d3030302d4d5049df7f05312d333766ef14df0d0b4d3030302d544553544f53df7f03372d369000fc
+2015-11-09 14:20:59.2691|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:20:59.2848|DEBUG(9)|device.miura|Found serial number 10034133
+2015-11-09 14:20:59.2848|DEBUG(9)|flow|Flow advancing to _displayReaderConnectingMessage
+2015-11-09 14:20:59.3004|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd2, instruction 0x1, P1 0x0, P2 0x80
+35 bytes: 0a20202020436f6e6e656374696e6720746f0a20202020204170706c69636174696f6e
+2015-11-09 14:20:59.3473|DEBUG(9)|miura.parser|Miura response template: <empty> SW1: 90 SW2: 0 Raw: 010002900093
+2015-11-09 14:20:59.3473|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:20:59.3473|DEBUG(9)|flow|Flow advancing to _getDeviceCapabilities
+2015-11-09 14:20:59.3629|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd0, instruction 0x2, P1 0x0, P2 0x0
+
+2015-11-09 14:20:59.5035|DEBUG(9)|miura.parser|Miura response template: e1 SW1: 90 SW2: 0 Raw: 0100cce181c7ed10df0d0d4368617267655f637261646c65ed0cdf0d09536d61727463617264ed0edf0d0b436f6e746163746c657373ed1edf0d084861726477617265df7f104d3031302d5445535430332d56322d30ed17df0d0d5553425f426c7565746f6f7468df7f0456342e30ed16df0d0653657269616cdf7f0a3031302d303334313333ed0adf0d075553425f4f5447ed13df0d07446973706c6179df7f06313238783634ed0bdf0d084b6579626f617264ed06df0d034d4669ed0edf0d034d6167df7f05312c322c3390005a
+2015-11-09 14:20:59.5035|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:20:59.5504|DEBUG(9)|device.miura|Device caps: {
+	"Charge_cradle": true,
+	"Smartcard": true,
+	"Contactless": true,
+	"Hardware": "M010-TEST03-V2-0",
+	"USB_Bluetooth": "V4.0",
+	"Serial": "010-034133",
+	"USB_OTG": true,
+	"Display": "128x64",
+	"Keyboard": true,
+	"MFi": true,
+	"Mag": "1,2,3"
+}
+2015-11-09 14:20:59.5504|DEBUG(9)|flow|Flow advancing to _getDeviceConfig
+2015-11-09 14:20:59.5504|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd0, instruction 0x1, P1 0x0, P2 0x0
+
+2015-11-09 14:20:59.7734|DEBUG(9)|miura.parser|Received partial packet of 254 bytes 0101fee182028fed15df0d0b41525143444f4c2e434647df7f04312e3234ed14df0d0a414143444f4c2e434647df7f04312e3134ed11df0d07656d762e636667df7f0431322e34ed19df0d0f636f6e746163746c6573732e636667df7f0431332e34ed1adf0d0b50325045444f4c2e434647df7f094d697572612d312d32ed23df0d10656d762d66616c6c6261636b2e636667df7f0d50617950616c2d562d312d3031ed19df0d094f50444f4c2e434647df7f0a4d697572612d56312d30ed13df0d095443444f4c2e434647df7f04312e3134ed12df0d0854444f4c2e434647df7f04312e3132ed1bdf0d0a54524d444f4c2e434647df7f0b4d697572612d56313d
+2015-11-09 14:20:59.9140|DEBUG(9)|miura.parser|Received partial packet of 254 bytes 0101fe2d3031ed1edf0d0b6361706b6579732e636667df7f0d544553544341504b2d56322d36ed12df0d0931327833322e626466df7f03312e32ed14df0d0b6c63642d7374642e626466df7f03312e37ed1adf0d0b70726f6d7074732e747874df7f094d697572612d312d33ed12df0d0931367833302e626466df7f03312e30ed21df0d11656d762d70696e6279706173732e636667df7f0a4d697572612d56302d36ed1edf0d146163632d646174612d70726f6d7074732e747874df7f04312e3030ed11df0d08397831372e626466df7f03312e30ed15df0d0c737265642d6d61672e636667df7f03302e31ed1bdf0d0b656d762d6172632e636667df7f0a4dbf
+2015-11-09 14:20:59.9609|DEBUG(9)|miura.parser|Final packet of partial 010099697572612d56312d34ed11df0d08387831362e626466df7f03312e30ed22df0d1063746c732d70726f6d7074732e747874df7f0c50617970616c2d56312d3035ed22df0d0f4d50492d44796e616d69632e636667df7f0d50617950616c2d562d312d3032ed14df0d0b6269746d6170732e636667df7f03322e31ed1bdf0d124d50492d50726f64756374696f6e2e636667df7f03342e319000bd
+2015-11-09 14:20:59.9765|DEBUG(9)|miura.parser|Reassembled 665 bytes (661).
+2015-11-09 14:21:00.2578|DEBUG(9)|miura.parser|Miura response template: e1 SW1: 90 SW2: 0 Raw: 000000e182028fed15df0d0b41525143444f4c2e434647df7f04312e3234ed14df0d0a414143444f4c2e434647df7f04312e3134ed11df0d07656d762e636667df7f0431322e34ed19df0d0f636f6e746163746c6573732e636667df7f0431332e34ed1adf0d0b50325045444f4c2e434647df7f094d697572612d312d32ed23df0d10656d762d66616c6c6261636b2e636667df7f0d50617950616c2d562d312d3031ed19df0d094f50444f4c2e434647df7f0a4d697572612d56312d30ed13df0d095443444f4c2e434647df7f04312e3134ed12df0d0854444f4c2e434647df7f04312e3132ed1bdf0d0a54524d444f4c2e434647df7f0b4d697572612d56312d3031ed1edf0d0b6361706b6579732e636667df7f0d544553544341504b2d56322d36ed12df0d0931327833322e626466df7f03312e32ed14df0d0b6c63642d7374642e626466df7f03312e37ed1adf0d0b70726f6d7074732e747874df7f094d697572612d312d33ed12df0d0931367833302e626466df7f03312e30ed21df0d11656d762d70696e6279706173732e636667df7f0a4d697572612d56302d36ed1edf0d146163632d646174612d70726f6d7074732e747874df7f04312e3030ed11df0d08397831372e626466df7f03312e30ed15df0d0c737265642d6d61672e636667df7f03302e31ed1bdf0d0b656d762d6172632e636667df7f0a4d697572612d56312d34ed11df0d08387831362e626466df7f03312e30ed22df0d1063746c732d70726f6d7074732e747874df7f0c50617970616c2d56312d3035ed22df0d0f4d50492d44796e616d69632e636667df7f0d50617950616c2d562d312d3032ed14df0d0b6269746d6170732e636667df7f03322e31ed1bdf0d124d50492d50726f64756374696f6e2e636667df7f03342e31900000
+2015-11-09 14:21:00.2578|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:00.4610|DEBUG(9)|device.miura|Software Info: {
+	"ARQCDOL.CFG": "1.24",
+	"AACDOL.CFG": "1.14",
+	"emv.cfg": "12.4",
+	"contactless.cfg": "13.4",
+	"P2PEDOL.CFG": "Miura-1-2",
+	"emv-fallback.cfg": "PayPal-V-1-01",
+	"OPDOL.CFG": "Miura-V1-0",
+	"TCDOL.CFG": "1.14",
+	"TDOL.CFG": "1.12",
+	"TRMDOL.CFG": "Miura-V1-01",
+	"capkeys.cfg": "TESTCAPK-V2-6",
+	"12x32.bdf": "1.2",
+	"lcd-std.bdf": "1.7",
+	"prompts.txt": "Miura-1-3",
+	"16x30.bdf": "1.0",
+	"emv-pinbypass.cfg": "Miura-V0-6",
+	"acc-data-prompts.txt": "1.00",
+	"9x17.bdf": "1.0",
+	"sred-mag.cfg": "0.1",
+	"emv-arc.cfg": "Miura-V1-4",
+	"8x16.bdf": "1.0",
+	"ctls-prompts.txt": "Paypal-V1-05",
+	"MPI-Dynamic.cfg": "PayPal-V-1-02",
+	"bitmaps.cfg": "2.1",
+	"MPI-Production.cfg": "4.1"
+}
+2015-11-09 14:21:00.4610|DEBUG(9)|flow|Flow advancing to _queryBackendForSWModules
+2015-11-09 14:21:00.4610|DEBUG(9)|device.miura|Fetching card reader specs.
+2015-11-09 14:21:02.2305|ERROR(9)|manticore.nativeService|System.Net.WebException: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at Manticore.NativeServices.Http(ManticoreEngine engine, JsValue optionsValue, JsValue callback) in c:\PayPal\Git\PayPalGit\retail-sdk\platform\win\manticore-win\Manticore.Win81\NativeServices.cs:line 189
+2015-11-09 14:21:02.2305|WARN(9)|device.miura|Could not get update instructions for PayPal 133
+2015-11-09 14:21:02.2305|DEBUG(9)|flow|Flow advancing to _getP2PEStatus
+2015-11-09 14:21:02.2617|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xee, instruction 0xe0, P1 0x0, P2 0x0
+
+2015-11-09 14:21:02.4336|DEBUG(9)|miura.parser|Miura response template: e1 SW1: 90 SW2: 0 Raw: 010009e105dfae01010690000b
+2015-11-09 14:21:02.4336|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:02.4336|DEBUG(9)|flow|Flow advancing to _getBatteryLevel
+2015-11-09 14:21:02.4336|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd0, instruction 0x62, P1 0x0, P2 0x0
+
+2015-11-09 14:21:02.4805|DEBUG(9)|miura.parser|Miura response template: e1 SW1: 90 SW2: 0 Raw: 01000ee10adfa2090100dfa20a015f900028
+2015-11-09 14:21:02.4805|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:02.4805|DEBUG(9)|miura|Received battery info Battery Status: Draining (95%), ConnectedToPower? false. Error: null
+2015-11-09 14:21:02.4805|DEBUG(9)|flow|Miura Connection Flow completed.
+2015-11-09 14:21:02.4961|DEBUG(9)|device.miura|Completed connection sequence.
+2015-11-09 14:21:02.4961|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd2, instruction 0x1, P1 0x0, P2 0x80
+35 bytes: 0a202020526561647920746f206163636570740a2020202020207061796d656e74732e
+2015-11-09 14:21:02.5430|DEBUG(9)|miura.parser|Miura response template: <empty> SW1: 90 SW2: 0 Raw: 010002900093
+2015-11-09 14:21:02.5430|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:02.5430|DEBUG(9)|payment|PayPal 133 is ready.
+2015-11-09 14:21:02.6368|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd0, instruction 0x62, P1 0x0, P2 0x0
+
+2015-11-09 14:21:02.6993|DEBUG(9)|miura.parser|Miura response template: e1 SW1: 90 SW2: 0 Raw: 01000ee10adfa2090100dfa20a015f900028
+2015-11-09 14:21:02.6993|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:02.6993|DEBUG(9)|miura|Received battery info Battery Status: Draining (95%), ConnectedToPower? false. Error: null
+2015-11-09 14:21:11.3019|DEBUG(9)|paymentDevice|Device scan completed in 4.27s
+2015-11-09 14:21:16.3685|DEBUG(9)|tx|Attempting new transaction on 1 devices with 10,15,5 available form factors
+2015-11-09 14:21:16.3841|DEBUG(9)|devMan|Activating PayPal 133 with form factors [10,15,5]
+2015-11-09 14:21:16.3841|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd0, instruction 0x60, P1 0xf, P2 0x0
+
+2015-11-09 14:21:16.3997|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd0, instruction 0x61, P1 0x1, P2 0x0
+
+2015-11-09 14:21:16.3997|INFO(9)|tx|Started a transaction on 1 device(s). Acceptable form factors: [10,15,5]
+2015-11-09 14:21:16.4310|DEBUG(9)|miura.parser|Miura response template: e1 SW1: 90 SW2: 0 Raw: 014008e10448020000900076
+2015-11-09 14:21:16.4310|DEBUG(9)|miura.parser|Emitting unsolicited terminal message
+2015-11-09 14:21:16.4310|DEBUG(9)|miura.terminal|Previous card status 0. New Status 0
+2015-11-09 14:21:16.4466|DEBUG(9)|miura.terminal|Unsolicited message: <----
+Miura Response: Template: 0xe1
+Data (4 bytes): 0x48020000
+TLV:
+  Tag 0x48 MiuraCardStatusInfo: 0x0000
+SW1: 0x90 SW2: 0x0
+---->
+Chip flags 0 Magstripe flags 0
+2015-11-09 14:21:16.4466|DEBUG(9)|miura.parser|Miura response template: <empty> SW1: 90 SW2: 0 Raw: 010002900093
+2015-11-09 14:21:16.4466|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:16.5873|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xde, instruction 0xc1, P1 0x0, P2 0x0
+37 bytes: e0239f4104000000009a031511099f21031421169c01009f02060000000001005f2a020840
+2015-11-09 14:21:19.8859|DEBUG(9)|miura.parser|Miura response template: <empty> SW1: 9f SW2: 44 Raw: 0100029f44d8
+2015-11-09 14:21:19.9015|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:19.9015|DEBUG(9)|miura|contactless tx aborted by card swipe
+2015-11-09 14:21:20.3078|DEBUG(9)|miura.parser|Miura response template: e1 SW1: 90 SW2: 0 Raw: 014076e17248020005dfae0230e59b0a94ffc97d2da64f6afc138b2662dd9a536d0620a0cd42af3d57f7f5ad336e09639cb932ba08e43cc2a04fd5e376dfae030affff9802646f54000050dfae22283b3534323833372a2a2a2a2a2a343030363d32313035353231303030303032363530303030303f3e9000bd
+2015-11-09 14:21:20.3078|DEBUG(9)|miura.parser|Emitting unsolicited terminal message
+2015-11-09 14:21:20.3234|DEBUG(9)|miura.terminal|Previous card status 0. New Status 0
+2015-11-09 14:21:20.3390|DEBUG(9)|miura.terminal|Unsolicited message: <----
+Miura Response: Template: 0xe1
+Data (114 bytes): 0x48020005dfae0230e59b0a94ffc97d2da64f6afc138b2662dd9a536d0620a0cd42af3d57f7f5ad336e09639cb932ba08e43cc2a04fd5e376dfae030affff9802646f54000050dfae22283b3534323833372a2a2a2a2a2a343030363d32313035353231303030303032363530303030303f3e
+TLV:
+  Tag 0x48 MiuraCardStatusInfo: 0x0005
+  Tag 0xdfae02 MiuraSREDData: 0xe59b0a94ffc97d2da64f6afc138b2662dd9a536d0620a0cd42af3d57f7f5ad336e09639cb932ba08e43cc2a04fd5e376
+  Tag 0xdfae03 MiuraKSN: 0xffff9802646f54000050
+  Tag 0xdfae22 MiuraMaskedTrack2: ;542837******4006=21055210000026500000?>
+SW1: 0x90 SW2: 0x0
+---->
+Chip flags 0 Magstripe flags 5
+KSN: ffff9802646f54000050
+Masked Track 2: ;542837******4006=21055210000026500000?>
+SRED: e59b0a94ffc97d2da64f6afc138b2662dd9a536d0620a0cd42af3d57f7f5ad336e09639cb932ba08e43cc2a04fd5e376
+2015-11-09 14:21:20.5422|DEBUG(9)|miura.terminal|EMV Card Swiped 014076e17248020005dfae0230e59b0a94ffc97d2da64f6afc138b2662dd9a536d0620a0cd42af3d57f7f5ad336e09639cb932ba08e43cc2a04fd5e376dfae030affff9802646f54000050dfae22283b3534323833372a2a2a2a2a2a343030363d32313035353231303030303032363530303030303f3e9000bd
+2015-11-09 14:21:20.5891|DEBUG(9)|miura|Signature data from card: null(cvmStatus)
+2015-11-09 14:21:20.5891|DEBUG(9)|miura|Card data: 4006 (lastFourDigits), 2(cardIssuer), true(isSignatureRequired)
+2015-11-09 14:21:20.6047|DEBUG(9)|tx|TransactionContext cardPresented (formFactor: 5)
+2015-11-09 14:21:20.6047|DEBUG(9)|tx|Card (type: MagneticCard) was presented. Form Factor: 5
+2015-11-09 14:21:20.6047|DEBUG(9)|flow.swipe|Initializing Swipe flow...
+2015-11-09 14:21:20.6203|DEBUG(9)|flow.basePayment|Start executing 8 steps for Swipe flow
+2015-11-09 14:21:20.6203|DEBUG(9)|flow|Flow advancing to showProcessingStep
+2015-11-09 14:21:20.6359|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd2, instruction 0x1, P1 0x0, P2 0x80
+18 bytes: 0a2020202050726f63657373696e672e2e2e
+2015-11-09 14:21:20.6672|DEBUG(9)|miura.parser|Miura response template: <empty> SW1: 90 SW2: 0 Raw: 010002900093
+2015-11-09 14:21:20.6672|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:20.6672|DEBUG(9)|flow|Flow advancing to saveInvoiceStep
+2015-11-09 14:21:21.0579|DEBUG(9)|paypalrest|POST https://www.stage2d0044.stage.paypal.com:11888/v1/invoicing/invoices (375ms): 201
+2015-11-09 14:21:21.0891|DEBUG(9)|flow|Flow advancing to showAuthMessageStep
+2015-11-09 14:21:21.0891|DEBUG(9)|flow|Flow advancing to MerchantTakePaymentStep
+2015-11-09 14:21:21.1047|DEBUG(9)|flow.mtp.takePayment|MTP:
+{
+	"invoiceId": "INV2-E3B2-YFVL-AFLZ-PJDB",
+	"paymentType": "card",
+	"dateTime": "2015-11-09T14:21:20-08:00",
+	"card": {
+		"reader": {
+			"vendor": "MIURA_SWIPE",
+			"keySerialNumber": "ffff9802646f54000050",
+			"readerSerialNumber": "10034133"
+		},
+		"inputType": "swipe",
+		"track2": "48020005dfae0230e59b0a94ffc97d2da64f6afc138b2662dd9a536d0620a0cd42af3d57f7f5ad336e09639cb932ba08e43cc2a04fd5e376dfae030affff9802646f54000050dfae22283b3534323833372a2a2a2a2a2a343030363d32313035353231303030303032363530303030303f3e"
+	}
+}
+
+2015-11-09 14:21:25.7164|DEBUG(9)|paymentDevice|Device scan completed in 4.24s
+2015-11-09 14:21:25.7320|DEBUG(9)|paypalrest|POST https://www.stage2d0044.stage.paypal.com/webapps/hereapi/merchant/v1/payment (4628ms): 200
+2015-11-09 14:21:25.7476|DEBUG(9)|flow.mtp.takePayment|MTP no error, isEmv: undefined, formFactor: 5 
+{
+	"headers": {
+		"Content-Type": "application/json;charset=UTF-8",
+		"Date": "Mon, 09 Nov 2015 22:21:25 GMT",
+		"Set-Cookie": "SPARTAJSESSIONID=c9285ea16d5f3; Domain=.paypal.com; Path=/; Secure; HttpOnly,SPARTAJSESSIONIDV2=JkhKC96EmIPGD6SRWVMPEy7Il7GCSDU-E3fFILGBzsFi0T9Yu1RrxRUluaiUPtP-SFf9ommRxDc; Domain=.paypal.com; Path=/; Secure; HttpOnly",
+		"Server": "Apache-Coyote/1.1",
+		"Location": "",
+		"REFRESH": "",
+		"Transfer-Encoding": "chunked"
+	},
+	"statusCode": 200,
+	"body": {
+		"correlationId": "f46c35a36d5f1",
+		"transactionNumber": "6HN44902LN026235A",
+		"invoiceId": "INV2-E3B2-YFVL-AFLZ-PJDB",
+		"transactionHandle": "3X227069J8259400J",
+		"responseCode": "0000",
+		"payerInfo": {
+			"customerId": "UAUPHNUM95KJY",
+			"receiptPreferenceToken": "S/yxTefEt3gNCssMOoR3vhP27P4="
+		}
+	}
+}
+2015-11-09 14:21:25.9352|DEBUG(9)|flow|Flow advancing to SignatureStep
+2015-11-09 14:21:25.9352|DEBUG(9)|flow.mtp.signature|Skipping signature step. Reason: Signature not required for this transaction
+2015-11-09 14:21:25.9508|DEBUG(9)|flow|Flow advancing to showFinalizeMessage
+2015-11-09 14:21:25.9508|DEBUG(9)|flow|Flow advancing to FinalizePaymentStep
+2015-11-09 14:21:25.9664|DEBUG(9)|flow.mtp.finalize|Skipping Finalize payment
+2015-11-09 14:21:25.9664|DEBUG(9)|flow|Flow advancing to showCompleteMessage
+2015-11-09 14:21:26.0038|DEBUG(9)|miura.writer|Miura Sending ApduCommand class 0xd2, instruction 0x1, P1 0x0, P2 0x80
+33 bytes: 0a202020202024312e303020706169642e0a20202020205468616e6b20796f7521
+2015-11-09 14:21:26.0356|DEBUG(9)|miura.parser|Miura response template: <empty> SW1: 90 SW2: 0 Raw: 010002900093
+2015-11-09 14:21:26.0356|DEBUG(9)|miura.parser|Emitting responsive terminal message
+2015-11-09 14:21:26.0356|DEBUG(9)|flow|Swipe Flow completed.
+2015-11-09 14:21:26.0356|DEBUG(9)|flow.basePayment|Starting completion steps for Swipe flow
+2015-11-09 14:21:26.0356|DEBUG(9)|flow|Flow advancing to ReceiptStep
+2015-11-09 14:21:26.0512|DEBUG(9)|flow.mtp.receipt|Email/SMS receipt forwarding not required. Skipping receipt step. Native response: null
+2015-11-09 14:21:26.0512|DEBUG(9)|flow|Swipe-Receipt Flow completed.
+2015-11-09 14:21:26.1449|DEBUG(9)|flow.basePayment|Flow ended. Proceeding to invoke flow complete callback (error: undefined)
+2015-11-09 14:21:26.1449|INFO(9)|tx|Transaction flow complete handler was invoked with error action: ''
+2015-11-09 14:21:26.1449|INFO(9)|tx|Ending transaction and removing all listeners from 1 devices
