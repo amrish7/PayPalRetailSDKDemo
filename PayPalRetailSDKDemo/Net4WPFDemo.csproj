@@ -35,18 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HidLibrary">
-      <HintPath>packages\PayPalRetailSDK.0.0.0.45\lib\net40\HidLibrary.dll</HintPath>
+    <Reference Include="HidLibrary, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\PayPalRetailSDK.0.0.0.49\lib\net40\HidLibrary.dll</HintPath>
     </Reference>
     <Reference Include="InTheHand.Net.Personal">
       <HintPath>packages\32feet.NET.3.5.0.0\lib\net\InTheHand.Net.Personal.dll</HintPath>
     </Reference>
-    <Reference Include="Jint">
-      <HintPath>packages\PayPalRetailSDK.0.0.0.45\lib\net40\Jint.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Jint, Version=2.7.1.0, Culture=neutral, PublicKeyToken=2e92ba9c8d81157f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\PayPalRetailSDK.0.0.0.49\lib\net40\Jint.dll</HintPath>
     </Reference>
-    <Reference Include="Manticore.Net4">
-      <HintPath>packages\PayPalRetailSDK.0.0.0.45\lib\net40\Manticore.Net4.dll</HintPath>
+    <Reference Include="Manticore.Net4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\PayPalRetailSDK.0.0.0.49\lib\net40\Manticore.Net4.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -60,8 +62,12 @@
     <Reference Include="NLog">
       <HintPath>packages\NLog.4.2.0\lib\net40\NLog.dll</HintPath>
     </Reference>
-    <Reference Include="PayPalRetailSDK.Net4">
-      <HintPath>packages\PayPalRetailSDK.0.0.0.45\lib\net40\PayPalRetailSDK.Net4.dll</HintPath>
+    <Reference Include="PayPalRetailSDK.Net4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\PayPalRetailSDK.0.0.0.49\lib\net40\PayPalRetailSDK.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>packages\RestSharp.105.2.3\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -100,6 +106,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CustomNetworkHandler.cs" />
     <Compile Include="TakePayment.xaml.cs">
       <DependentUpon>TakePayment.xaml</DependentUpon>
       <SubType>Code</SubType>

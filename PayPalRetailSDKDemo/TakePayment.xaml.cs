@@ -15,9 +15,9 @@ namespace Net4WPFDemo
         public TakePayment()
         {
             InitializeComponent();
+            RetailSDK.SetNetworkHandler(new CustomNetworkHandler());
             RetailSDK.Initialize();
             messageTextBlock.Text = "SDK Initialized.";
-
             InitializeMerchant();
 
             //Synchronizing amount field to terminal display
