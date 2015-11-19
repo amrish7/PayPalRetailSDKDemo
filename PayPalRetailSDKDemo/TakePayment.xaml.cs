@@ -45,8 +45,10 @@ namespace Net4WPFDemo
                         {
                             MessageTextBlock.Text = string.Format("{0}Connected to {1}", merchantStatus, deviceId);
                             ChargeButton.IsEnabled = true;
-                            _context = CreateTxContext(decimal.Parse(amountField.Text));
-                            _context.TotalDisplayFooter = "“\n+2.7% fee\n$1.027";
+                            const decimal serviceFee = 2.7m;
+                            var total = decimal.Parse(amountField.Text);
+                            _context = CreateTxContext(total);
+                            _context.TotalDisplayFooter = string.Format("\n+${0}% fee\n${1}", serviceFee, decimal.Round(total * (1 + serviceFee/100), 2));
                         }));
                     }
                     catch (Exception ex)
@@ -67,9 +69,10 @@ namespace Net4WPFDemo
 
         void context_Completed(TransactionContext sender, RetailSDKException error, TransactionRecord record)
         {
+            var errorMsg = (error != null ? error.ToString() : "no error");
             Dispatcher.Invoke(new Action(() =>
             {
-                MessageTextBlock.Text = "Transaction Completed " + (error != null ? error.ToString() : "no error");
+                MessageTextBlock.Text = "Transaction Completed " + errorMsg;
             }));
             _context = null;
         }
@@ -81,7 +84,7 @@ namespace Net4WPFDemo
                 var token = GetToken();
                 var merchant = await RetailSDK.InitializeMerchant(token);
                 var emailId = merchant.EmailAddress;
-                Dispatcher.Invoke(new Action(() =>
+                Dispatcher.Invoke(DispatcherPriority.Input, TimeSpan.MaxValue, new Action(() =>
                 {
                     merchantStatus = "Merchant initialized: " + emailId + "\n";
                     MessageTextBlock.Text = string.Format("{0}Looking for devices", merchantStatus);
