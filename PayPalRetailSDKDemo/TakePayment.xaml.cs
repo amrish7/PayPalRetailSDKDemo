@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Threading;
 using PayPalRetailSDK;
 
 namespace Net4WPFDemo
@@ -11,13 +12,15 @@ namespace Net4WPFDemo
     public partial class TakePayment : Window
     {
         private TransactionContext _context;
+        private string merchantStatus;
 
         public TakePayment()
         {
             InitializeComponent();
             RetailSDK.SetNetworkHandler(new CustomNetworkHandler());
             RetailSDK.Initialize();
-            messageTextBlock.Text = "SDK Initialized.";
+            ChargeButton.IsEnabled = false;
+            MessageTextBlock.Text = "SDK Initialized";
             InitializeMerchant();
 
             //Synchronizing amount field to terminal display
@@ -30,11 +33,33 @@ namespace Net4WPFDemo
                     _context.Invoice.Items[0].UnitPrice = amount;
                 }
             };
+
+            RetailSDK.DeviceDiscovered += (sender, device) =>
+            {
+                device.Connected += pd =>
+                {
+                    try
+                    {
+                        var deviceId = pd.Id;
+                        Dispatcher.Invoke(DispatcherPriority.Input, TimeSpan.MaxValue, new Action(() =>
+                        {
+                            MessageTextBlock.Text = string.Format("{0}Connected to {1}", merchantStatus, deviceId);
+                            ChargeButton.IsEnabled = true;
+                            _context = CreateTxContext(decimal.Parse(amountField.Text));
+                            _context.TotalDisplayFooter = "“\n+2.7% fee\n$1.027";
+                        }));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                };
+            };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            messageTextBlock.Text = "Created Transaction Context";
+            MessageTextBlock.Text = "Created Transaction Context";
             _context = _context ?? CreateTxContext(decimal.Parse(amountField.Text));
             _context.Completed += context_Completed;
             _context.Begin(true);
@@ -44,7 +69,7 @@ namespace Net4WPFDemo
         {
             Dispatcher.Invoke(new Action(() =>
             {
-                messageTextBlock.Text = "Transaction Completed " + (error != null ? error.ToString() : "no error");
+                MessageTextBlock.Text = "Transaction Completed " + (error != null ? error.ToString() : "no error");
             }));
             _context = null;
         }
@@ -55,17 +80,18 @@ namespace Net4WPFDemo
             {
                 var token = GetToken();
                 var merchant = await RetailSDK.InitializeMerchant(token);
+                var emailId = merchant.EmailAddress;
                 Dispatcher.Invoke(new Action(() =>
                 {
-                    messageTextBlock.Text = "Merchant initialized: " + merchant.EmailAddress;
+                    merchantStatus = "Merchant initialized: " + emailId + "\n";
+                    MessageTextBlock.Text = string.Format("{0}Looking for devices", merchantStatus);
                 }));
-                _context = CreateTxContext(decimal.Parse(amountField.Text));
             }
             catch (Exception x)
             {
                 Dispatcher.Invoke(new Action(() =>
                 {
-                    messageTextBlock.Text = "Merchant init failed: " + x;
+                    MessageTextBlock.Text = "Merchant init failed: " + x;
                 }));
             }
         }
