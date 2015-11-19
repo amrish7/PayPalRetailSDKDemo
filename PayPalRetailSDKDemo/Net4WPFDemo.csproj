@@ -37,18 +37,18 @@
   <ItemGroup>
     <Reference Include="HidLibrary, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\PayPalRetailSDK.0.0.0.50\lib\net40\HidLibrary.dll</HintPath>
+      <HintPath>packages\PayPalRetailSDK.0.0.0.51\lib\net40\HidLibrary.dll</HintPath>
     </Reference>
     <Reference Include="InTheHand.Net.Personal">
       <HintPath>packages\32feet.NET.3.5.0.0\lib\net\InTheHand.Net.Personal.dll</HintPath>
     </Reference>
-    <Reference Include="Jint, Version=2.7.1.0, Culture=neutral, PublicKeyToken=2e92ba9c8d81157f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\PayPalRetailSDK.0.0.0.50\lib\net40\Jint.dll</HintPath>
+    <Reference Include="Jint">
+      <HintPath>packages\PayPalRetailSDK.0.0.0.51\lib\net40\Jint.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Manticore.Net4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\PayPalRetailSDK.0.0.0.50\lib\net40\Manticore.Net4.dll</HintPath>
+      <HintPath>packages\PayPalRetailSDK.0.0.0.51\lib\net40\Manticore.Net4.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
@@ -64,7 +64,7 @@
     </Reference>
     <Reference Include="PayPalRetailSDK.Net4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\PayPalRetailSDK.0.0.0.50\lib\net40\PayPalRetailSDK.Net4.dll</HintPath>
+      <HintPath>packages\PayPalRetailSDK.0.0.0.51\lib\net40\PayPalRetailSDK.Net4.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
       <HintPath>packages\RestSharp.105.2.3\lib\net4\RestSharp.dll</HintPath>
