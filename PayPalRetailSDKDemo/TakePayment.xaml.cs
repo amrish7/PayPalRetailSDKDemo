@@ -41,7 +41,7 @@ namespace Net4WPFDemo
                     try
                     {
                         var deviceId = pd.Id;
-                        Dispatcher.Invoke(DispatcherPriority.Input, TimeSpan.MaxValue, new Action(() =>
+                        Dispatcher.BeginInvoke(new Action(() =>
                         {
                             MessageTextBlock.Text = string.Format("{0}Connected to {1}", merchantStatus, deviceId);
                             ChargeButton.IsEnabled = true;
@@ -70,7 +70,7 @@ namespace Net4WPFDemo
         void context_Completed(TransactionContext sender, RetailSDKException error, TransactionRecord record)
         {
             var errorMsg = (error != null ? error.ToString() : "no error");
-            Dispatcher.Invoke(new Action(() =>
+            Dispatcher.BeginInvoke(new Action(() =>
             {
                 MessageTextBlock.Text = "Transaction Completed " + errorMsg;
             }));
@@ -84,7 +84,7 @@ namespace Net4WPFDemo
                 var token = GetToken();
                 var merchant = await RetailSDK.InitializeMerchant(token);
                 var emailId = merchant.EmailAddress;
-                Dispatcher.Invoke(DispatcherPriority.Input, TimeSpan.MaxValue, new Action(() =>
+                Dispatcher.BeginInvoke(new Action(() =>
                 {
                     merchantStatus = "Merchant initialized: " + emailId + "\n";
                     MessageTextBlock.Text = string.Format("{0}Looking for devices", merchantStatus);
